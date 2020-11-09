@@ -14,12 +14,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // float h = Input.GetAxis("Horizontal");
-        // float v = Input.GetAxis("Vertical");
-        // Vector3 movement = new Vector3(h * speed, rb.velocity.y, v * speed);
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(h * speed * Time.deltaTime, 0, v * speed * Time.deltaTime);
 
-        // rb.AddForce(movement);
-
-        transform.Translate(new Vector3(-0.01f, 0,0));
+        transform.Translate(movement);
     }
 }
