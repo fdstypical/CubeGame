@@ -6,8 +6,6 @@ public class Player : MonoBehaviour
     public float mouseSens = 5;
     public float speed;
     float mouseX;
-    bool mouseDown = false;
-
 
     Rigidbody rb;
 
@@ -16,17 +14,9 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void OnMouseDown() {
-        mouseDown = true;
-    }
-
-    void OnMouseUp() {
-        mouseDown = false;
-    }
-
     void Update()
     {
-        int isMouseDownInt = mouseDown ? 1 : 0;
+        int isMouseDownInt = Input.GetMouseButton(0) ? 1 : 0;
         mouseX = Input.GetAxis("Mouse X") * mouseSens * isMouseDownInt;
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
